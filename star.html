@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+    <!-- JQuery -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+    <!--
+    window.onload = function() {
+
+
+            document.body.appendChild(createStar(100));
+
+            var stars = document.querySelectorAll(".star");
+            var starCount = 0;
+
+            for (var i = 0; i < stars.length; i++) {
+                move(i);
+            }
+
+            function createStar(num) {
+                var df = document.createDocumentFragment();
+                for (var i = 0; i < num; i++) {
+                    var divStar = document.createElement('div');
+                    divStar.className = "star";
+                    var icon = document.createElement('i');
+                    icon.className = "fa fa-star";
+                    divStar.appendChild(icon);
+                    divStar.addEventListener("mouseover",catchStar);
+                    df.appendChild(divStar);
+                }
+
+                function catchStar(event){
+                	event.target.className="star catch";
+                	console.log(event);
+                    console.log(event.target.style.transform);
+                }
+
+                return df;
+            }
+
+            function move(i) {
+                setTimeout(function() {
+                    var randomX = Math.floor(Math.random() * 101);
+                    var randomClass = Math.floor(Math.random() * 2) + 1;
+                    stars[i].style.left = randomX + "%";
+                    stars[i].className = "star move" + randomClass;
+
+                    if (starCount != 0 && starCount % 100 == 0) {
+                        document.querySelector("#starCount").className = "premium";
+                    } else if (starCount != 0 && starCount % 50 == 0) {
+                        document.querySelector("#starCount").className = "";
+                    }
+                    document.querySelector("#starCount").innerText = ++starCount;
+
+
+                }, i * 100);
+            }
+        }
+        -->
+    </script>
+    <style type="text/css">
+    <!-- body {
+        position: relative;
+    }
+    
+    .star {
+        visibility: hidden;
+        top: 0;
+        left: 50%;
+        position: absolute;
+        font-size: 34px;
+        color: yellow;
+        text-shadow: 1px 0px #000, -1px 0px #000, 0px 1px #000, 0px -1px #000;
+        transform-origin: 50% 50% 200px;
+    }
+
+    .star.move1 {
+        animation: fall1 0.5s linear 1;
+    }
+    
+    .star.move2 {
+        animation: fall2 1s linear 1;
+    }
+
+    .star.catch {
+        color: pink;
+        animation: catch 2s linear 1;
+    }
+    
+    @keyframes fall1 {
+    	0% {
+            visibility: visible;
+    	}
+        100% {
+            transform: translate(50px, 300px);
+        }
+    }
+    
+    @keyframes fall2 {
+        0% {
+            visibility: visible;
+    	}
+        100% {
+            transform: translate(100px, 300px);
+            visibility: hidden
+        }
+    }
+  
+    @keyframes catch {
+        0% {
+            visibility: visible;
+    	}
+        100% {
+       	 	top: 50px;
+        	right: 80px;
+        }
+    }
+
+    .board {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        transform-origin: 50% 50% 50px;
+    }
+    
+    #counter {
+        color: white;
+        font-size: 26px;
+        font-family: Meiryo;
+        position: absolute;
+        top: 50px;
+        right: 80px;
+    }
+    
+    #starCount.premium {
+        animation: premium 1s linear 1;
+    }
+    
+    @keyframes premium {
+        50% {
+            font-size: 70px;
+            color: red;
+        }
+        100% {
+            font-size: 26px;
+            color: white;
+        }
+    }
+    
+    #moon {
+        color: yellow;
+        font-size: 50px;
+        position: absolute;
+        top: 50px;
+        left: 80px;
+    }
+    
+    -->
+    </style>
+</head>
+
+<body class="board">
+    <div id="moon"><i class="fa fa-moon-o" aria-hidden="true"></i></div>
+    <div id="counter"><i class="fa fa-star" style="color:yellow;"></i>Å~<i id="starCount">0</i></div>
+</body>
+
+</html>
